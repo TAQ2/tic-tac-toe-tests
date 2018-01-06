@@ -5,18 +5,22 @@ const playGame = () => {
 };
 
 const generateBoard = () => {
-  // generates a new empty board
   return [[null, null, null], [null, null, null], [null, null, null]];
 };
 
-const takePlayerTurn = () => {
-  // takes a board and co-ordinates of new turn taken
-  // check that turn is valid
-  // return new board that has the new tile added
+const canPlayerTakeTurn = (board, rowIndex, columnIndex) => {
+  return board[rowIndex][columnIndex] == null;
+};
+
+const takePlayerTurn = (board, playerTile, rowIndex, columnIndex) => {
+  board[rowIndex][columnIndex] = playerTile;
+
+  return board;
 };
 
 module.exports = {
   generateBoard,
+  canPlayerTakeTurn,
   takePlayerTurn,
   playGame
 };

@@ -1,14 +1,26 @@
 {
-  "name": "monte-carlo-tic-tac-toe",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
+  "author": "TAQ2",
+  "name": "tic-tac-toe",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "jest": "^22.0.4"
-  }
+    "cypress": "^1.4.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2"
+  },
+  "lint-staged": {
+    "*.{js, json}": ["prettier --write", "git add"]
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
+  "version": "0.1.0"
 }

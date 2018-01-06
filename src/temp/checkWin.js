@@ -2,7 +2,11 @@ const checkWin = board => {
   // takes a board a calculates whether the game has been won
   // must check vertical win, horizontal win and diagonal win
 
-  return checkVerticalWin(board) && checkHorizontalWin(board) && checkDiagonalWin(board);
+  return (
+    checkVerticalWin(board) &&
+    checkHorizontalWin(board) &&
+    checkDiagonalWin(board)
+  );
 };
 
 const checkVerticalWin = board => {
@@ -15,7 +19,9 @@ const checkVerticalWin = board => {
       column.push(row[i]);
     });
 
-    const isColumnWin = column.every(tile => tile != null && tile === column[0]);
+    const isColumnWin = column.every(
+      tile => tile != null && tile === column[0]
+    );
 
     if (isColumnWin) {
       isWin = isColumnWin;
