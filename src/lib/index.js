@@ -23,9 +23,25 @@ const takePlayerTurn = (board, playerToken, rowIndex, columnIndex) => {
   return newBoard;
 };
 
+// @Incomplete - test this
+const calculatePlayerTurn = token => {
+  if (token !== "X" && token !== "O") {
+    throw new Error(
+      `calculatePlayerTurn was called with invalid value: ${token}`
+    );
+  }
+
+  if (token === "X") {
+    return "O";
+  } else {
+    return "X";
+  }
+};
+
 module.exports = {
   generateBoard,
   canPlayerTakeTurn,
   takePlayerTurn,
-  playGame
+  playGame,
+  calculatePlayerTurn
 };

@@ -30,7 +30,7 @@ describe("start game", () => {
 describe("play a turn", () => {
   it("player X should always go first", () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state().playerToken).toEqual("X");
+    expect(wrapper.state().currentPlayerToken).toEqual("X");
   });
 
   it("should not be allow to take a turn if the game is not active", () => {
@@ -38,13 +38,12 @@ describe("play a turn", () => {
 
     const rowIndex = 0;
     const columnIndex = 0;
-    const playerToken = "X";
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex, playerToken);
+    wrapper.instance().onTileClick(rowIndex, columnIndex);
     expect(wrapper.state().board).toEqual(emptyBoard);
   });
 
-  it("onTileClick should update the board states", () => {
+  it("onTileClick should update the board state", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().board).toEqual(emptyBoard);
 
@@ -52,9 +51,23 @@ describe("play a turn", () => {
 
     const rowIndex = 0;
     const columnIndex = 0;
-    const playerToken = "X";
+    const { currentPlayerToken } = wrapper.state();
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex, playerToken);
-    expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(playerToken);
+    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(
+      currentPlayerToken
+    );
+  });
+
+  it("player token should change once a move has been entered", async () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().currentPlayerToken).toEqual("X");
+    wrapper.setState({ isGameActive: true });
+
+    const rowIndex = 0;
+    const columnIndex = 0;
+
+    await wrapper.instance().onTileClick(rowIndex, columnIndex);
+    expect(wrapper.state().currentPlayerToken).toEqual("O");
   });
 });

@@ -11,7 +11,7 @@ class Board extends Component {
         {gameState.map((row, rowIndex) =>
           row.map((tile, columnIndex) => (
             <Tile
-              key={`${rowIndex} + ${columnIndex}`}
+              key={`${rowIndex}${columnIndex}`}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               token={tile}
