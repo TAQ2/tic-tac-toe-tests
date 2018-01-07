@@ -1,8 +1,23 @@
 import React, { Component } from "react";
 
+import Tile from "../tile";
+
 class Board extends Component {
   render() {
-    return null;
+    return (
+      <div>
+        {this.props.gameState.map((row, rowIndex) =>
+          row.map((tile, columnIndex) => (
+            <Tile
+              key={`${rowIndex} + ${columnIndex}`}
+              rowIndex={rowIndex}
+              columnIndex={columnIndex}
+              token={tile}
+            />
+          ))
+        )}
+      </div>
+    );
   }
 }
 

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { generateBoard } from "../lib";
 import Controls from "../controls";
 import Message from "../message";
+import Board from "../board";
 
 class App extends Component {
   state = { isGameActive: false, board: generateBoard() };
@@ -20,6 +21,7 @@ class App extends Component {
           isGameActive={this.state.isGameActive}
         />
         <Message isGameActive={this.state.isGameActive} />
+        <Board gameState={this.state.board} />
       </div>
     );
   }
