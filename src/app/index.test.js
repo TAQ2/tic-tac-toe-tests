@@ -59,7 +59,7 @@ describe("play a turn", () => {
     );
   });
 
-  it("player token should change once a move has been entered", async () => {
+  it("player token should change once a move has been entered", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().currentPlayerToken).toEqual("X");
     wrapper.setState({ isGameActive: true });
@@ -67,7 +67,21 @@ describe("play a turn", () => {
     const rowIndex = 0;
     const columnIndex = 0;
 
-    await wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onTileClick(rowIndex, columnIndex);
     expect(wrapper.state().currentPlayerToken).toEqual("O");
+  });
+
+  it("player cannot put token in a non-empty tile", () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ isGameActive: true });
+
+    const rowIndex = 0;
+    const columnIndex = 0;
+    const player1Token = wrapper.state().currentPlayerToken;
+
+    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(player1Token);
+    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(player1Token);
   });
 });

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
-import { generateBoard, takePlayerTurn, calculatePlayerTurn } from "../lib";
+import {
+  generateBoard,
+  takePlayerTurn,
+  calculatePlayerTurn,
+  canPlayerTakeTurn
+} from "../lib";
 import Controls from "../controls";
 import Message from "../message";
 import Board from "../board";
@@ -20,21 +25,19 @@ class App extends Component {
   onTileClick = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
-    if (!isGameActive) {
-      return;
+    if (isGameActive && canPlayerTakeTurn(board, rowIndex, columnIndex)) {
+      const newBoard = takePlayerTurn(
+        board,
+        currentPlayerToken,
+        rowIndex,
+        columnIndex
+      );
+
+      this.setState({
+        board: newBoard,
+        currentPlayerToken: calculatePlayerTurn(currentPlayerToken)
+      });
     }
-
-    const newBoard = takePlayerTurn(
-      board,
-      currentPlayerToken,
-      rowIndex,
-      columnIndex
-    );
-
-    this.setState({
-      board: newBoard,
-      currentPlayerToken: calculatePlayerTurn(currentPlayerToken)
-    });
   };
 
   render() {
