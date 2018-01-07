@@ -1,8 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 import App from "./";
 import { generateBoard } from "../lib";
+
+const emptyBoard = generateBoard();
 
 describe("start game", () => {
   it("the game should not start until the start game is clicked", () => {
@@ -15,12 +17,44 @@ describe("start game", () => {
 
   it("the board should be initialised when the start game is clicked", () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state().board).toEqual(generateBoard());
+    expect(wrapper.state().board).toEqual(emptyBoard);
 
     wrapper.setState({ board: null });
     expect(wrapper.state().board).toEqual(null);
 
     wrapper.instance().onStartGame();
-    expect(wrapper.state().board).toEqual(generateBoard());
+    expect(wrapper.state().board).toEqual(emptyBoard);
+  });
+});
+
+describe("play a turn", () => {
+  it("player X should always go first", () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().playerToken).toEqual("X");
+  });
+
+  it("should not be allow to take a turn if the game is not active", () => {
+    const wrapper = shallow(<App />);
+
+    const rowIndex = 0;
+    const columnIndex = 0;
+    const playerToken = "X";
+
+    wrapper.instance().onTileClick(rowIndex, columnIndex, playerToken);
+    expect(wrapper.state().board).toEqual(emptyBoard);
+  });
+
+  it("onTileClick should update the board states", () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().board).toEqual(emptyBoard);
+
+    wrapper.setState({ isGameActive: true });
+
+    const rowIndex = 0;
+    const columnIndex = 0;
+    const playerToken = "X";
+
+    wrapper.instance().onTileClick(rowIndex, columnIndex, playerToken);
+    expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(playerToken);
   });
 });

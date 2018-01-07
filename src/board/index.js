@@ -1,22 +1,25 @@
 import React, { Component } from "react";
+import { Flex } from "rebass";
 
 import Tile from "../tile";
 
 class Board extends Component {
   render() {
+    const { onTileClick, gameState } = this.props;
     return (
-      <div>
-        {this.props.gameState.map((row, rowIndex) =>
+      <Flex wrap width={600}>
+        {gameState.map((row, rowIndex) =>
           row.map((tile, columnIndex) => (
             <Tile
               key={`${rowIndex} + ${columnIndex}`}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               token={tile}
+              onTileClick={onTileClick}
             />
           ))
         )}
-      </div>
+      </Flex>
     );
   }
 }
