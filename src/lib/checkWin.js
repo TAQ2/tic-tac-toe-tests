@@ -1,10 +1,14 @@
-const checkWin = board => {
-  // takes a board a calculates whether the game has been won
-  // must check vertical win, horizontal win and diagonal win
+// @Cleanup - rename file
+// @Cleanup - rename check... to is...
 
+const isDraw = board => {
+  return board.every(row => row.every(tile => tile !== null));
+};
+
+const checkWin = board => {
   return (
-    checkVerticalWin(board) &&
-    checkHorizontalWin(board) &&
+    checkVerticalWin(board) ||
+    checkHorizontalWin(board) ||
     checkDiagonalWin(board)
   );
 };
@@ -63,5 +67,6 @@ module.exports = {
   checkWin,
   checkVerticalWin,
   checkHorizontalWin,
-  checkDiagonalWin
+  checkDiagonalWin,
+  isDraw
 };

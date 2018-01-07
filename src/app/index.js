@@ -6,6 +6,7 @@ import {
   calculatePlayerTurn,
   canPlayerTakeTurn
 } from "../lib";
+import { checkWin, isDraw } from "../lib/checkWin";
 import Controls from "../controls";
 import Message from "../message";
 import Board from "../board";
@@ -33,9 +34,12 @@ class App extends Component {
         columnIndex
       );
 
+      const isGameOver = checkWin(newBoard) || isDraw(newBoard);
+
       this.setState({
         board: newBoard,
-        currentPlayerToken: calculatePlayerTurn(currentPlayerToken)
+        currentPlayerToken: calculatePlayerTurn(currentPlayerToken),
+        isGameActive: !isGameOver
       });
     }
   };

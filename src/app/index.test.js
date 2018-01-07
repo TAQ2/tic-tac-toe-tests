@@ -85,3 +85,37 @@ describe("play a turn", () => {
     expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(player1Token);
   });
 });
+
+describe("end game", () => {
+  it("game should not be active when the game is won", () => {
+    const wrapper = shallow(<App />);
+    const board = generateBoard();
+
+    board[0][0] = "X";
+    board[0][1] = "O";
+    board[1][1] = "X";
+    board[0][2] = "O";
+
+    wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+    wrapper.instance().onTileClick(2, 2);
+    expect(wrapper.state().isGameActive).toEqual(false);
+  });
+
+  it("game should not be active when the game is a draw", () => {
+    const wrapper = shallow(<App />);
+    const board = generateBoard();
+
+    board[0][0] = "O";
+    board[0][1] = "X";
+    board[0][2] = "O";
+    board[1][0] = "X";
+    board[1][1] = "X";
+    board[1][2] = "O";
+    board[2][0] = "O";
+    board[2][1] = "O";
+
+    wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+    wrapper.instance().onTileClick(2, 2);
+    expect(wrapper.state().isGameActive).toEqual(false);
+  });
+});

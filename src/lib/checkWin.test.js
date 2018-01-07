@@ -2,7 +2,8 @@ const {
   checkWin,
   checkVerticalWin,
   checkHorizontalWin,
-  checkDiagonalWin
+  checkDiagonalWin,
+  isDraw
 } = require("./checkWin");
 
 describe("check a horizonal win", () => {
@@ -104,5 +105,17 @@ describe("check a diagonal win", () => {
       [null, null, "zzz"]
     ];
     expect(checkDiagonalWin(board3)).toEqual(true);
+  });
+});
+
+describe("check for a draw", () => {
+  it("should return false if there are no empty tiles on the board", () => {
+    const board1 = [["zz", "zz", "zz"], ["zz", "zz", "zz"], ["zz", "zz", "zz"]];
+    expect(isDraw(board1)).toEqual(true);
+  });
+
+  it("should return false if there are any empty tiles on the board", () => {
+    const board1 = [["zz", "zz", "zz"], [null, "zz", "zz"], ["zz", "zz", "zz"]];
+    expect(isDraw(board1)).toEqual(false);
   });
 });
