@@ -27,7 +27,7 @@ class App extends Component {
   onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
-    // @Cleanup - move logic to takePlayerTurn
+    // @Question - should this logic be abstracted out
     if (isGameActive && canPlayerTakeTurn(board, rowIndex, columnIndex)) {
       const newBoard = addTokenToBoard(
         board,
