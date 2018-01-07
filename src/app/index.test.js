@@ -2,7 +2,7 @@ import React from "react";
 import { mount, shallow } from "enzyme";
 
 import App from "./";
-import { generateBoard } from "../lib";
+import { generateBoard } from "./logic";
 
 const emptyBoard = generateBoard();
 
@@ -39,11 +39,11 @@ describe("play a turn", () => {
     const rowIndex = 0;
     const columnIndex = 0;
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
     expect(wrapper.state().board).toEqual(emptyBoard);
   });
 
-  it("onTileClick should update the board state", () => {
+  it("onPlayerTurn should update the board state", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().board).toEqual(emptyBoard);
 
@@ -53,7 +53,7 @@ describe("play a turn", () => {
     const columnIndex = 0;
     const { currentPlayerToken } = wrapper.state();
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
     expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(
       currentPlayerToken
     );
@@ -67,7 +67,7 @@ describe("play a turn", () => {
     const rowIndex = 0;
     const columnIndex = 0;
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
     expect(wrapper.state().currentPlayerToken).toEqual("O");
   });
 
@@ -79,9 +79,9 @@ describe("play a turn", () => {
     const columnIndex = 0;
     const player1Token = wrapper.state().currentPlayerToken;
 
-    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
     expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(player1Token);
-    wrapper.instance().onTileClick(rowIndex, columnIndex);
+    wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
     expect(wrapper.state().board[rowIndex][columnIndex]).toEqual(player1Token);
   });
 });
@@ -97,7 +97,7 @@ describe("end game", () => {
     board[0][2] = "O";
 
     wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
-    wrapper.instance().onTileClick(2, 2);
+    wrapper.instance().onPlayerTurn(2, 2);
     expect(wrapper.state().isGameActive).toEqual(false);
   });
 
@@ -115,7 +115,7 @@ describe("end game", () => {
     board[2][1] = "O";
 
     wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
-    wrapper.instance().onTileClick(2, 2);
+    wrapper.instance().onPlayerTurn(2, 2);
     expect(wrapper.state().isGameActive).toEqual(false);
   });
 });

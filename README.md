@@ -2,11 +2,14 @@
 
 ## Roadmap
 
+* circleCI
+* cypress tests for a draw
 * describe the aims of the repo
-* styling of the board
 * line to show when the game is won
 * improve game message
 * cleanups and incompletes
 * calculate whether there are anymore moves left
 * winner tally
+* deploy to github pages
+* mobile responsiveness
 * monte-carlo

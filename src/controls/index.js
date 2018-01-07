@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// @Incomplete - test this
 const generateMessage = isGameActive => {
   return isGameActive ? "Reset" : "Start";
 };

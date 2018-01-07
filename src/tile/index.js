@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Box } from "rebass";
+import { Flex, Text } from "rebass";
 import styled from "styled-components";
 
-const StyledTile = styled(Box)`
+const StyledTile = styled(Flex)`
   min-height: 200px;
   max-width: 200px;
+  border: 5px solid white;
+  border-radius: 50px;
 `;
 
 class Tile extends Component {
@@ -15,9 +17,11 @@ class Tile extends Component {
         width={1 / 3}
         bg="papayawhip"
         className={`tile${rowIndex}${columnIndex}`}
+        align="center"
+        justify="center"
         onClick={() => onTileClick(rowIndex, columnIndex, "X")}
       >
-        {token}
+        <Text fontSize={5}>{token}</Text>
       </StyledTile>
     );
   }

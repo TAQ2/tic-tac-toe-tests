@@ -5,7 +5,7 @@ import Tile from "../tile";
 
 class Board extends Component {
   render() {
-    const { onTileClick, gameState } = this.props;
+    const { onPlayerTurn, gameState } = this.props;
     return (
       <Flex wrap width={600}>
         {gameState.map((row, rowIndex) =>
@@ -15,7 +15,7 @@ class Board extends Component {
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               token={tile}
-              onTileClick={onTileClick}
+              onTileClick={onPlayerTurn}
             />
           ))
         )}

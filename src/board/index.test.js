@@ -3,12 +3,14 @@ import { mount } from "enzyme";
 
 import Board from "./";
 import Tile from "../tile";
-import { generateBoard } from "../lib/";
 
 describe("displays a tic tac toe board", () => {
   it("displays an empty board", () => {
-    const emptyBoard = generateBoard();
-
+    const emptyBoard = [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ];
     const wrapper = mount(<Board gameState={emptyBoard} />);
 
     const tiles = wrapper.find(Tile);
@@ -21,7 +23,7 @@ describe("displays a tic tac toe board", () => {
   });
 
   it("displays the tokens in the game state", () => {
-    const board = generateBoard();
+    const board = [[null, null, null], [null, null, null], [null, null, null]];
     const playerToken = "ZZ";
     board[0][0] = playerToken;
 

@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 import {
   generateBoard,
-  takePlayerTurn,
+  addTokenToBoard,
   calculatePlayerTurn,
   canPlayerTakeTurn,
-  checkWin,
+  isWin,
   isDraw
 } from "./logic";
 
@@ -24,19 +24,19 @@ class App extends Component {
     this.setState({ isGameActive: true, board: generateBoard() });
   };
 
-  // @Cleanup - rename this to onPlayerTurn
-  onTileClick = (rowIndex, columnIndex) => {
+  onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
+    // @Cleanup - move logic to takePlayerTurn
     if (isGameActive && canPlayerTakeTurn(board, rowIndex, columnIndex)) {
-      const newBoard = takePlayerTurn(
+      const newBoard = addTokenToBoard(
         board,
         currentPlayerToken,
         rowIndex,
         columnIndex
       );
 
-      const isGameOver = checkWin(newBoard) || isDraw(newBoard);
+      const isGameOver = isWin(newBoard) || isDraw(newBoard);
 
       this.setState({
         board: newBoard,
@@ -55,7 +55,7 @@ class App extends Component {
           isGameActive={this.state.isGameActive}
         />
         <Message isGameActive={this.state.isGameActive} />
-        <Board gameState={this.state.board} onTileClick={this.onTileClick} />
+        <Board gameState={this.state.board} onPlayerTurn={this.onPlayerTurn} />
       </div>
     );
   }
