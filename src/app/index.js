@@ -4,9 +4,11 @@ import {
   generateBoard,
   takePlayerTurn,
   calculatePlayerTurn,
-  canPlayerTakeTurn
-} from "../lib";
-import { checkWin, isDraw } from "../lib/checkWin";
+  canPlayerTakeTurn,
+  checkWin,
+  isDraw
+} from "./logic";
+
 import Controls from "../controls";
 import Message from "../message";
 import Board from "../board";
