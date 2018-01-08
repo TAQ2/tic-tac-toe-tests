@@ -1,7 +1,6 @@
 describe("the game can be won", () => {
   it("once the game is won, another tile cannot be placed", () => {
     cy.visit("/");
-
     cy
       .get(".startButton")
       .first()

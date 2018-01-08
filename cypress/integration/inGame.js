@@ -1,6 +1,6 @@
 describe("initial turn", () => {
   it("player X must go first", () => {
-    cy.visit("/");
+    cy.visit("/adsfsdfa");
 
     cy
       .get(".startButton")

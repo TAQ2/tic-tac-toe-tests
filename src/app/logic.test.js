@@ -1,9 +1,7 @@
 import {
   generateBoard,
   addTokenToBoard,
-  playGame,
   canPlayerTakeTurn,
-  isWin,
   isVerticalWin,
   isHorizontalWin,
   isDiagonalWin,
