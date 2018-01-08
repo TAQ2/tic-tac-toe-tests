@@ -76,7 +76,7 @@ export const isHorizontalWin = board => {
   return isWin;
 };
 
-// @Cleanup - is there a more progrommatic to calculate this so that it
+// @Cleanup - is there a more programmatic to calculate this so that it
 // doesn't have to be a 3x3 grid
 export const isDiagonalWin = board => {
   const diagonal1 = [board[0][0], board[1][1], board[2][2]];
@@ -92,4 +92,9 @@ export const isDiagonalWin = board => {
   );
 
   return isDiagonalWin1 || isDiagonalWin2;
+};
+
+export const isGameWinnable = board => {
+  // get verticals, horizonatals and diagonals
+  // for every array, check that there is not a X and O present
 };
