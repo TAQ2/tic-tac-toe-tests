@@ -6,4 +6,4 @@ jobs:
     steps:
       - checkout
       - run: npm install --production
-      - run: npm run deploy -- --repo https://taq2.github.io/tic-tac-toe
+      - run: npm run deploy
