@@ -5,5 +5,5 @@ jobs:
       - image: circleci/node:8.9.3
     steps:
       - checkout
-      - run: npm install
-      - run: npm run deploy
+      - run: npm install --production
+      - run: npm run deploy -- --repo https://taq2.github.io/tic-tac-toe
