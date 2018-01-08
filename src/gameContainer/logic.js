@@ -2,6 +2,7 @@ export const generateBoard = () => {
   return [[null, null, null], [null, null, null], [null, null, null]];
 };
 
+// @Cleanup - rename this to indicate it is just to do with collisions
 export const canPlayerTakeTurn = (board, rowIndex, columnIndex) => {
   return board[rowIndex][columnIndex] == null;
 };
@@ -75,6 +76,8 @@ export const isHorizontalWin = board => {
   return isWin;
 };
 
+// @Cleanup - is there a more progrommatic to calculate this so that it
+// doesn't have to be a 3x3 grid
 export const isDiagonalWin = board => {
   const diagonal1 = [board[0][0], board[1][1], board[2][2]];
 

@@ -1,68 +1,25 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
-import {
-  generateBoard,
-  addTokenToBoard,
-  calculatePlayerTurn,
-  canPlayerTakeTurn,
-  isWin,
-  isDraw
-} from "./logic";
-import Controls from "../controls";
-import Message from "../message";
-import Board from "../board";
+import Header from "../header";
+import GameContainer from "../gameContainer";
+
+const Container = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  max-width: 1024px;
+`;
 
 class App extends Component {
-  state = {
-    isGameActive: false,
-    board: generateBoard(),
-    currentPlayerToken: "X"
-  };
-
-  onStartGame = () => {
-    this.setState({ isGameActive: true, board: generateBoard() });
-  };
-
-  // @Cleanup - can we make this method more readable
-  onPlayerTurn = (rowIndex, columnIndex) => {
-    const { isGameActive, board, currentPlayerToken } = this.state;
-
-    if (!isGameActive || !canPlayerTakeTurn(board, rowIndex, columnIndex)) {
-      return;
-    }
-
-    const newBoard = addTokenToBoard(
-      board,
-      currentPlayerToken,
-      rowIndex,
-      columnIndex
-    );
-
-    const isGameOver = isWin(newBoard) || isDraw(newBoard);
-
-    const newPlayerToken = isGameOver
-      ? "X"
-      : calculatePlayerTurn(currentPlayerToken);
-
-    const newState = {
-      board: newBoard,
-      currentPlayerToken: newPlayerToken,
-      isGameActive: !isGameOver
-    };
-
-    this.setState(newState);
-  };
-
   render() {
     return (
       <div>
-        <h1>Tic Tac Toe</h1>
-        <Controls
-          onStartGame={this.onStartGame}
-          isGameActive={this.state.isGameActive}
-        />
-        <Message isGameActive={this.state.isGameActive} />
-        <Board gameState={this.state.board} onPlayerTurn={this.onPlayerTurn} />
+        <Header />
+        <Container>
+          <GameContainer />
+        </Container>
       </div>
     );
   }
