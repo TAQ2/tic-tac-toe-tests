@@ -3,9 +3,15 @@
 ## Infrastructure
 
 * circleci
+  * test cypress
+  * make sure it only deploys on master
 * cleanups and incompletes
 * investigate deploying to github user as opposed to repo
-* cypress tests for a draw
+* cypress
+  * tests for a draw
+  * dashboard app
+  * videos
+  * snapshot
 * use react 16 features e.g. fragments
 * stop caching when there is a new deploy
 
