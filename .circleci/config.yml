@@ -14,5 +14,5 @@ jobs:
             git config --global user.name "Arjun"
       - run: npm run deploy
 
-# test
+# test cypress
 # make sure it only deploys on master
