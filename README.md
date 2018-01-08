@@ -1,6 +1,6 @@
-# tic-tac-toe
+# Tic Tac Toe
 
-## Breakdown of prime technology
+## Breakdown Of Main Technologies
 
 * create-react-app
 * cypress
@@ -9,7 +9,7 @@
 * circleci
 * monte carlo
 
-## Aims of the repo
+## Aims Of The Repo
 
 * practice with test driven developments
 * familiarise with cypress as runner for end to end test

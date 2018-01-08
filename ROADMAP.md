@@ -4,7 +4,7 @@
 
 * circleci
 * cleanups and incompletes
-* deploy to github pages
+* investigate deploying to github user as opposed to repo
 * cypress tests for a draw
 * use react 16 features e.g. fragments
 
@@ -28,6 +28,7 @@
 * github icon
 * remove rebass
 * mobile responsiveness
+* favicon
 
 ## ML
 

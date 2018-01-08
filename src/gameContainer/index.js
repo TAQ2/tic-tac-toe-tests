@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import {
   generateBoard,
@@ -55,14 +55,14 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Controls
           onStartGame={this.onStartGame}
           isGameActive={this.state.isGameActive}
         />
         <Message isGameActive={this.state.isGameActive} />
         <Board gameState={this.state.board} onPlayerTurn={this.onPlayerTurn} />
-      </div>
+      </Fragment>
     );
   }
 }
