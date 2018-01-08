@@ -20,7 +20,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "align": "center",
-      "bg": "papayawhip",
+      "bg": "secondary",
       "children": <Styled(Styled(Base))
         fontSize={5}
 />,
@@ -51,7 +51,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "align": "center",
-        "bg": "papayawhip",
+        "bg": "secondary",
         "children": <Styled(Styled(Base))
           fontSize={5}
 />,
