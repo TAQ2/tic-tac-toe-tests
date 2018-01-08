@@ -6,4 +6,6 @@ jobs:
     steps:
       - checkout
       - run: npm install --production
+      - run: git config --global user.email "arjungupta2110@gmail.com"
+      - run: git config --global user.name "Arjun"
       - run: npm run deploy
