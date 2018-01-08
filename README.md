@@ -6,6 +6,7 @@
 * cypress
 * enzyme
 * jest
+* circleci
 * monte carlo
 
 ## Aims of the repo
@@ -17,13 +18,12 @@
 
 ## Roadmap
 
-* add linting
-* circleCI
+* circleci
 * cypress tests for a draw
 * line to show when the game is won
 * improve game message
 * cleanups and incompletes
-* calculate whether there are anymore moves left
+* calculate whether there are any moves left
 * winner tally
 * deploy to github pages
 * mobile responsiveness

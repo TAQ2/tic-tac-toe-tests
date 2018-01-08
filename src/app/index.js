@@ -23,6 +23,7 @@ class App extends Component {
     this.setState({ isGameActive: true, board: generateBoard() });
   };
 
+  // @Cleanup - can we make this method more readable
   onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
@@ -39,11 +40,17 @@ class App extends Component {
 
     const isGameOver = isWin(newBoard) || isDraw(newBoard);
 
-    this.setState({
+    const newPlayerToken = isGameOver
+      ? "X"
+      : calculatePlayerTurn(currentPlayerToken);
+
+    const newState = {
       board: newBoard,
-      currentPlayerToken: calculatePlayerTurn(currentPlayerToken),
+      currentPlayerToken: newPlayerToken,
       isGameActive: !isGameOver
-    });
+    };
+
+    this.setState(newState);
   };
 
   render() {

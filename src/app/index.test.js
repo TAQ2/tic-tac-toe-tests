@@ -123,5 +123,19 @@ describe("App", () => {
       wrapper.instance().onPlayerTurn(2, 2);
       expect(wrapper.state().isGameActive).toEqual(false);
     });
+
+    it("player token should be reset to X", () => {
+      const wrapper = shallow(<App />);
+      const board = generateBoard();
+
+      board[0][0] = "X";
+      board[0][1] = "O";
+      board[1][1] = "X";
+      board[0][2] = "O";
+
+      wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+      wrapper.instance().onPlayerTurn(2, 2);
+      expect(wrapper.state().currentPlayerToken).toEqual("X");
+    });
   });
 });
