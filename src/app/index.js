@@ -8,7 +8,6 @@ import {
   isWin,
   isDraw
 } from "./logic";
-
 import Controls from "../controls";
 import Message from "../message";
 import Board from "../board";
@@ -24,26 +23,28 @@ class App extends Component {
     this.setState({ isGameActive: true, board: generateBoard() });
   };
 
+  // @Question - should this logic be abstracted out
   onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
-    // @Question - should this logic be abstracted out
-    if (isGameActive && canPlayerTakeTurn(board, rowIndex, columnIndex)) {
-      const newBoard = addTokenToBoard(
-        board,
-        currentPlayerToken,
-        rowIndex,
-        columnIndex
-      );
-
-      const isGameOver = isWin(newBoard) || isDraw(newBoard);
-
-      this.setState({
-        board: newBoard,
-        currentPlayerToken: calculatePlayerTurn(currentPlayerToken),
-        isGameActive: !isGameOver
-      });
+    if (!isGameActive || !canPlayerTakeTurn(board, rowIndex, columnIndex)) {
+      return;
     }
+
+    const newBoard = addTokenToBoard(
+      board,
+      currentPlayerToken,
+      rowIndex,
+      columnIndex
+    );
+
+    const isGameOver = isWin(newBoard) || isDraw(newBoard);
+
+    this.setState({
+      board: newBoard,
+      currentPlayerToken: calculatePlayerTurn(currentPlayerToken),
+      isGameActive: !isGameOver
+    });
   };
 
   render() {
