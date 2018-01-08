@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build --repo git@github.com:taq2/tic-tac-toe.git",
     "eject": "react-scripts eject",
     "lint": "eslint . --ignore-path .gitignore",
     "precommit": "lint-staged",
