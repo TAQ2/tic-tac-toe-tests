@@ -15,7 +15,7 @@ class Tile extends Component {
     return (
       <StyledTile
         width={1 / 3}
-        bg="papayawhip"
+        bg="secondary"
         className={`tile${rowIndex}${columnIndex}`}
         align="center"
         justify="center"
