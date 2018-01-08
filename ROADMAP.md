@@ -7,6 +7,7 @@
 * investigate deploying to github user as opposed to repo
 * cypress tests for a draw
 * use react 16 features e.g. fragments
+* stop caching when there is a new deploy
 
 ## Game Mechanics
 
