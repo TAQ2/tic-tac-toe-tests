@@ -27,5 +27,6 @@
 * winner tally
 * deploy to github pages
 * mobile responsiveness
+* routing for 2 player or monte carlo or min max, 404 page
 * monte-carlo
 * min-max
