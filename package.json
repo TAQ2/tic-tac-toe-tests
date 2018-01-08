@@ -31,7 +31,9 @@
     "precommit": "lint-staged",
     "predeploy": "npm run build",
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom"
+    "test": "npm run test:jest && npm run test:cypress",
+    "test:jest": "react-scripts test --env=jsdom",
+    "test:cypress": "cypress run"
   },
   "version": "0.1.0"
 }

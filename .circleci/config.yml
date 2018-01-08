@@ -5,8 +5,8 @@ jobs:
       - image: circleci/node:8.9.3
     steps:
       - checkout
-      - run: npm install --production
-      - run: npm test -- --ci --runInBand
+      - run: npm install
+      - run: npm run test:jest -- --ci --runInBand
       - run:
           name: set git name and email
           command: |
