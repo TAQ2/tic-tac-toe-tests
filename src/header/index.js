@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <Toolbar bg="primary">
-        <h2>Tic Tac Toe</h2>
+        <h2>Tic Tac Toe TESTING</h2>
       </Toolbar>
     );
   }
