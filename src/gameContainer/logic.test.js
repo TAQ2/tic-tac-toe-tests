@@ -134,7 +134,7 @@ describe("check a vertical win", () => {
   });
 });
 
-describe(" a diagonal win", () => {
+describe("check a diagonal win", () => {
   it("should return false if there are no diagonals with full entries", () => {
     const board1 = [[null, null, null], [null, null, null], [null, null, null]];
     expect(isDiagonalWin(board1)).toEqual(false);
@@ -167,7 +167,7 @@ describe(" a diagonal win", () => {
   });
 });
 
-describe(" for a draw", () => {
+describe("check for a draw", () => {
   it("should return false if there are no empty tiles on the board", () => {
     const board1 = [["zz", "zz", "zz"], ["zz", "zz", "zz"], ["zz", "zz", "zz"]];
     expect(isDraw(board1)).toEqual(true);

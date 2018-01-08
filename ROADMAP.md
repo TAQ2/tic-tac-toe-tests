@@ -19,7 +19,7 @@
 * turn board into svg
 * line to show when the game is won
 * improve game message
-* winner tally
+* winner/draw tally
 * change player type
   * 2 player
   * monte carlo
