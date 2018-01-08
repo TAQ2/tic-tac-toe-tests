@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import "jest-styled-components";
 
-import Tile from "../Tile";
+import Tile from "../tile";
 
 describe("Tile component", () => {
   it("displays a token", () => {
