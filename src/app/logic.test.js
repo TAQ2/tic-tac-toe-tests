@@ -1,4 +1,4 @@
-const {
+import {
   generateBoard,
   addTokenToBoard,
   playGame,
@@ -8,7 +8,7 @@ const {
   isHorizontalWin,
   isDiagonalWin,
   isDraw
-} = require("./logic");
+} from "./logic";
 
 describe("generateBoard - initialising the board", () => {
   const board = generateBoard();

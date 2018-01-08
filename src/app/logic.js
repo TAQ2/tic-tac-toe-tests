@@ -1,9 +1,3 @@
-// export const takePlayerTurn = () => {
-//   // initialise board
-//   // get user input and take a turn
-//   // if no one has won, do a user input again
-// };
-
 export const generateBoard = () => {
   return [[null, null, null], [null, null, null], [null, null, null]];
 };
