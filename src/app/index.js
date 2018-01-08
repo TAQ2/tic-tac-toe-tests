@@ -23,7 +23,6 @@ class App extends Component {
     this.setState({ isGameActive: true, board: generateBoard() });
   };
 
-  // @Question - should this logic be abstracted out
   onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
