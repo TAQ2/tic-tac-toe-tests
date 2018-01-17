@@ -4,7 +4,7 @@ import {
   generateBoard,
   addTokenToBoard,
   calculatePlayerTurn,
-  canPlayerTakeTurn,
+  isPlayerTurnValid,
   isWin,
   isDraw
 } from "./logic";
@@ -27,7 +27,7 @@ class GameContainer extends Component {
   onPlayerTurn = (rowIndex, columnIndex) => {
     const { isGameActive, board, currentPlayerToken } = this.state;
 
-    if (!isGameActive || !canPlayerTakeTurn(board, rowIndex, columnIndex)) {
+    if (!isGameActive || !isPlayerTurnValid(board, rowIndex, columnIndex)) {
       return;
     }
 

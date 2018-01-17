@@ -1,7 +1,7 @@
 import {
   generateBoard,
   addTokenToBoard,
-  canPlayerTakeTurn,
+  isPlayerTurnValid,
   isVerticalWin,
   isHorizontalWin,
   isDiagonalWin,
@@ -33,18 +33,18 @@ describe("generateBoard - initialising the board", () => {
 describe("check player takes a valid turn", () => {
   it("return false if the target tile is not null", () => {
     let board = [["xx", null, null], [null, null, null], [null, null, null]];
-    expect(canPlayerTakeTurn(board, 0, 0)).toEqual(false);
+    expect(isPlayerTurnValid(board, 0, 0)).toEqual(false);
 
     board = [["xx", null, null], [null, null, null], [null, "oo", null]];
-    expect(canPlayerTakeTurn(board, 2, 1)).toEqual(false);
+    expect(isPlayerTurnValid(board, 2, 1)).toEqual(false);
   });
 
   it("return true if the target tile is null", () => {
     let board = [[null, null, null], [null, null, null], [null, null, null]];
-    expect(canPlayerTakeTurn(board, 0, 0)).toEqual(true);
+    expect(isPlayerTurnValid(board, 0, 0)).toEqual(true);
 
     board = [["xx", null, null], [null, null, null], [null, "oo", null]];
-    expect(canPlayerTakeTurn(board, 1, 1)).toEqual(true);
+    expect(isPlayerTurnValid(board, 1, 1)).toEqual(true);
   });
 });
 

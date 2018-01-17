@@ -2,8 +2,7 @@ export const generateBoard = () => {
   return [[null, null, null], [null, null, null], [null, null, null]];
 };
 
-// @Cleanup - rename this to indicate it is just to do with collisions
-export const canPlayerTakeTurn = (board, rowIndex, columnIndex) => {
+export const isPlayerTurnValid = (board, rowIndex, columnIndex) => {
   return board[rowIndex][columnIndex] == null;
 };
 
