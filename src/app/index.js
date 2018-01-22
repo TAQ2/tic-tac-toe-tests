@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Provider } from "rebass";
 
-import theme from "../theme";
 import Header from "../header";
 import GameContainer from "../gameContainer";
 
@@ -18,12 +16,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Provider theme={theme}>
-          <Header />
-          <Container>
-            <GameContainer />
-          </Container>
-        </Provider>
+        <Header />
+        <Container>
+          <GameContainer />
+        </Container>
       </div>
     );
   }

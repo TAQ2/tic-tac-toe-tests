@@ -44,13 +44,11 @@ class GameContainer extends Component {
       ? "X"
       : calculatePlayerTurn(currentPlayerToken);
 
-    const newState = {
+    this.setState({
       board: newBoard,
       currentPlayerToken: newPlayerToken,
       isGameActive: !isGameOver
-    };
-
-    this.setState(newState);
+    });
   };
 
   render() {
