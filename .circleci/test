@@ -3,4 +3,4 @@
 CI=true yarn test:jest --ci --runInBand
 yarn start &
 yarn wait-on http://localhost:3000
-yarn test:cypress run
+yarn test:cypress
