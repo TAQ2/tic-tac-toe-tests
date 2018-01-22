@@ -8,8 +8,9 @@
   * dashboard app
   * videos
   * snapshot
+* jest snapshots
 * use react 16 features e.g. fragments
-* stop browser caching when there is a new deploy
+* remove rebass
 
 ## Game Mechanics
 
@@ -23,15 +24,14 @@
 * line to show when the game is won
 * improve game message
 * winner/draw tally
+* pick a colour theme
 * change player type
   * 2 player
   * monte carlo
   * min max
-* animations - handwitten elements
-* github icon
-* remove rebass
-* mobile responsiveness
-* favicon
+* animations - handwritten elements
+* mobile responsiveness?
+* favicon?
 
 ## ML
 
