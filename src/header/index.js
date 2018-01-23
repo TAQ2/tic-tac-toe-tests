@@ -13,7 +13,7 @@ const StyledLink = styled.a`
 class Header extends Component {
   render() {
     return (
-      <Toolbar bg={PRIMARY} px={4}>
+      <Toolbar bg={PRIMARY} px={4} mb={4}>
         <h2>Tic Tac Toe</h2>
         <Box ml="auto" />
         <StyledLink href="https://github.com/TAQ2/tic-tac-toe" target="_blank">

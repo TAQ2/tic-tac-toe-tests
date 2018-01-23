@@ -6,7 +6,7 @@ import { PRIMARY, SECONDARY } from "../theme";
 
 const TileRect = styled.rect`
   fill: ${SECONDARY};
-  stroke-width: 3;
+  stroke-width: 40;
   stroke: white;
   rx: 50;
   ry: 50;

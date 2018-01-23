@@ -6,9 +6,9 @@ import Tile from "../tile";
 const WinningLine = styled.line`
   stroke: red;
   stroke-width: 10;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 1s linear forwards;
+  stroke-dasharray: 2300;
+  stroke-dashoffset: 2300;
+  animation: dash 1.5s linear forwards;
 
   @keyframes dash {
     to {
@@ -20,8 +20,8 @@ const WinningLine = styled.line`
 class Board extends Component {
   render() {
     const { onPlayerTurn, gameState } = this.props;
-    const width = 600;
-    const height = 600;
+    const width = 900;
+    const height = 900;
 
     const lineOffset = 30;
 
