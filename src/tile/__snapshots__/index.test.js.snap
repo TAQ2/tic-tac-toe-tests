@@ -17,63 +17,107 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "align": "center",
-      "bg": "secondary",
-      "children": <Styled(Styled(Base))
-        fontSize={5}
+      "children": Array [
+        <styled.rect
+          height={NaN}
+          width={NaN}
+          x={NaN}
+          y={NaN}
 />,
+        <styled.text
+          x={NaN}
+          y={NaN}
+/>,
+      ],
       "className": "tileundefinedundefined",
-      "justify": "center",
       "onClick": [Function],
-      "width": 0.3333333333333333,
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": undefined,
-        "fontSize": 5,
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "align": "center",
-        "bg": "secondary",
-        "children": <Styled(Styled(Base))
-          fontSize={5}
-/>,
-        "className": "tileundefinedundefined",
-        "justify": "center",
-        "onClick": [Function],
-        "width": 0.3333333333333333,
-      },
-      "ref": null,
-      "rendered": Object {
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": undefined,
-          "fontSize": 5,
+          "height": NaN,
+          "width": NaN,
+          "x": NaN,
+          "y": NaN,
         },
         "ref": null,
         "rendered": null,
         "type": [Function],
       },
-      "type": [Function],
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": undefined,
+          "x": NaN,
+          "y": NaN,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "g",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <styled.rect
+            height={NaN}
+            width={NaN}
+            x={NaN}
+            y={NaN}
+/>,
+          <styled.text
+            x={NaN}
+            y={NaN}
+/>,
+        ],
+        "className": "tileundefinedundefined",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "height": NaN,
+            "width": NaN,
+            "x": NaN,
+            "y": NaN,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+            "x": NaN,
+            "y": NaN,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "g",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -19,7 +19,6 @@ describe("Tile component", () => {
     wrapper.simulate("click");
 
     expect(mockFunction).toBeCalled();
-
     expect(wrapper).toMatchSnapshot();
   });
 });

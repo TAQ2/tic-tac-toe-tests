@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import { Flex } from "rebass";
 
+import { PLAYER_X } from "../constants";
 import {
   generateBoard,
   addTokenToBoard,
@@ -16,7 +18,7 @@ class GameContainer extends Component {
   state = {
     isGameActive: false,
     board: generateBoard(),
-    currentPlayerToken: "X"
+    currentPlayerToken: PLAYER_X
   };
 
   onStartGame = () => {
@@ -41,7 +43,7 @@ class GameContainer extends Component {
     const isGameOver = isWin(newBoard) || isDraw(newBoard);
 
     const newPlayerToken = isGameOver
-      ? "X"
+      ? PLAYER_X
       : calculatePlayerTurn(currentPlayerToken);
 
     this.setState({
@@ -53,14 +55,14 @@ class GameContainer extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Flex column align="center">
+        <Board gameState={this.state.board} onPlayerTurn={this.onPlayerTurn} />
         <Controls
           onStartGame={this.onStartGame}
           isGameActive={this.state.isGameActive}
         />
         <Message isGameActive={this.state.isGameActive} />
-        <Board gameState={this.state.board} onPlayerTurn={this.onPlayerTurn} />
-      </Fragment>
+      </Flex>
     );
   }
 }

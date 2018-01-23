@@ -9,8 +9,7 @@
   * videos
   * snapshot
 * jest snapshots
-* use react 16 features e.g. fragments
-* remove rebass
+* remove rebass?
 
 ## Game Mechanics
 
@@ -20,7 +19,6 @@
 
 ## UI
 
-* turn board into svg
 * line to show when the game is won
 * improve game message
 * winner/draw tally

@@ -1,8 +1,2 @@
-const theme = {
-  colors: {
-    primary: "purple",
-    secondary: "papayawhip"
-  }
-};
-
-export default theme;
+export const PRIMARY = "purple";
+export const SECONDARY = "papayawhip";

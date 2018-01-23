@@ -1,3 +1,5 @@
+import { PLAYER_X, PLAYER_O } from "../constants";
+
 export const generateBoard = () => {
   return [[null, null, null], [null, null, null], [null, null, null]];
 };
@@ -17,16 +19,16 @@ export const addTokenToBoard = (board, playerToken, rowIndex, columnIndex) => {
 
 // @Incomplete - test this
 export const calculatePlayerTurn = token => {
-  if (token !== "X" && token !== "O") {
+  if (token !== PLAYER_X && token !== PLAYER_O) {
     throw new Error(
       `calculatePlayerTurn was called with invalid value: ${token}`
     );
   }
 
-  if (token === "X") {
-    return "O";
+  if (token === PLAYER_X) {
+    return PLAYER_O;
   } else {
-    return "X";
+    return PLAYER_X;
   }
 };
 

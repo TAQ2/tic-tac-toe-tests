@@ -7,6 +7,7 @@ import {
   isDiagonalWin,
   isDraw
 } from "./logic";
+import { PLAYER_X } from "../constants";
 
 describe("generateBoard - initialising the board", () => {
   const board = generateBoard();

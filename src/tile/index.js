@@ -1,28 +1,57 @@
 import React, { Component } from "react";
-import { Flex, Text } from "rebass";
 import styled from "styled-components";
 
-const StyledTile = styled(Flex)`
-  min-height: 200px;
-  max-width: 200px;
-  border: 5px solid white;
-  border-radius: 50px;
+import { PLAYER_X } from "../constants";
+import { PRIMARY, SECONDARY } from "../theme";
+
+const TileRect = styled.rect`
+  fill: ${SECONDARY};
+  stroke-width: 3;
+  stroke: white;
+  rx: 50;
+  ry: 50;
+`;
+
+const Text = styled.text`
+  fill: ${PRIMARY};
+  text-anchor: middle;
+  alignment-baseline: central;
+  font-size: 100px;
 `;
 
 class Tile extends Component {
   render() {
-    const { token, rowIndex, columnIndex, onTileClick } = this.props;
+    const {
+      token,
+      rowIndex,
+      columnIndex,
+      onTileClick,
+      width,
+      height
+    } = this.props;
+
+    // @Cleanup - magic numbers
+    const tileWidth = width / 3;
+    const tileHeight = height / 3;
+
     return (
-      <StyledTile
-        width={1 / 3}
-        bg="secondary"
+      <g
         className={`tile${rowIndex}${columnIndex}`}
-        align="center"
-        justify="center"
-        onClick={() => onTileClick(rowIndex, columnIndex, "X")}
+        onClick={() => onTileClick(rowIndex, columnIndex, PLAYER_X)}
       >
-        <Text fontSize={5}>{token}</Text>
-      </StyledTile>
+        <TileRect
+          width={tileWidth}
+          height={tileHeight}
+          y={rowIndex * tileHeight}
+          x={columnIndex * tileWidth}
+        />
+        <Text
+          y={rowIndex * tileHeight + tileHeight / 2}
+          x={columnIndex * tileWidth + tileWidth / 2}
+        >
+          {token}
+        </Text>
+      </g>
     );
   }
 }

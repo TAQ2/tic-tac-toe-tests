@@ -1,25 +1,30 @@
 import React, { Component } from "react";
-import { Flex } from "rebass";
 
 import Tile from "../tile";
 
 class Board extends Component {
   render() {
     const { onPlayerTurn, gameState } = this.props;
+    const width = 600;
+    const height = 600;
+
     return (
-      <Flex wrap width={600}>
+      <svg width={width} height={height}>
         {gameState.map((row, rowIndex) =>
           row.map((tile, columnIndex) => (
             <Tile
+              // @Cleanup - props need renaming
               key={`${rowIndex}${columnIndex}`}
               rowIndex={rowIndex}
               columnIndex={columnIndex}
               token={tile}
               onTileClick={onPlayerTurn}
+              width={width}
+              height={height}
             />
           ))
         )}
-      </Flex>
+      </svg>
     );
   }
 }

@@ -3,6 +3,7 @@ import { shallow } from "enzyme";
 
 import GameContainer from "./";
 import { generateBoard } from "./logic";
+import { PLAYER_X, PLAYER_O } from "../constants";
 
 const emptyBoard = generateBoard();
 
@@ -31,7 +32,7 @@ describe("GameContainer", () => {
   describe("play a turn", () => {
     it("player X should always go first", () => {
       const wrapper = shallow(<GameContainer />);
-      expect(wrapper.state().currentPlayerToken).toEqual("X");
+      expect(wrapper.state().currentPlayerToken).toEqual(PLAYER_X);
     });
 
     it("should not be allow to take a turn if the game is not active", () => {
@@ -62,14 +63,14 @@ describe("GameContainer", () => {
 
     it("player token should change once a move has been entered", () => {
       const wrapper = shallow(<GameContainer />);
-      expect(wrapper.state().currentPlayerToken).toEqual("X");
+      expect(wrapper.state().currentPlayerToken).toEqual(PLAYER_X);
       wrapper.setState({ isGameActive: true });
 
       const rowIndex = 0;
       const columnIndex = 0;
 
       wrapper.instance().onPlayerTurn(rowIndex, columnIndex);
-      expect(wrapper.state().currentPlayerToken).toEqual("O");
+      expect(wrapper.state().currentPlayerToken).toEqual(PLAYER_O);
     });
 
     it("player cannot put token in a non-empty tile", () => {
@@ -96,12 +97,16 @@ describe("GameContainer", () => {
       const wrapper = shallow(<GameContainer />);
       const board = generateBoard();
 
-      board[0][0] = "X";
-      board[0][1] = "O";
-      board[1][1] = "X";
-      board[0][2] = "O";
+      board[0][0] = PLAYER_X;
+      board[0][1] = PLAYER_O;
+      board[1][1] = PLAYER_X;
+      board[0][2] = PLAYER_O;
 
-      wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+      wrapper.setState({
+        isGameActive: true,
+        board,
+        currentPlayerToken: PLAYER_X
+      });
       wrapper.instance().onPlayerTurn(2, 2);
       expect(wrapper.state().isGameActive).toEqual(false);
     });
@@ -110,16 +115,20 @@ describe("GameContainer", () => {
       const wrapper = shallow(<GameContainer />);
       const board = generateBoard();
 
-      board[0][0] = "O";
-      board[0][1] = "X";
-      board[0][2] = "O";
-      board[1][0] = "X";
-      board[1][1] = "X";
-      board[1][2] = "O";
-      board[2][0] = "O";
-      board[2][1] = "O";
+      board[0][0] = PLAYER_O;
+      board[0][1] = PLAYER_X;
+      board[0][2] = PLAYER_O;
+      board[1][0] = PLAYER_X;
+      board[1][1] = PLAYER_X;
+      board[1][2] = PLAYER_O;
+      board[2][0] = PLAYER_O;
+      board[2][1] = PLAYER_O;
 
-      wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+      wrapper.setState({
+        isGameActive: true,
+        board,
+        currentPlayerToken: PLAYER_X
+      });
       wrapper.instance().onPlayerTurn(2, 2);
       expect(wrapper.state().isGameActive).toEqual(false);
     });
@@ -128,14 +137,18 @@ describe("GameContainer", () => {
       const wrapper = shallow(<GameContainer />);
       const board = generateBoard();
 
-      board[0][0] = "X";
-      board[0][1] = "O";
-      board[1][1] = "X";
-      board[0][2] = "O";
+      board[0][0] = PLAYER_X;
+      board[0][1] = PLAYER_O;
+      board[1][1] = PLAYER_X;
+      board[0][2] = PLAYER_O;
 
-      wrapper.setState({ isGameActive: true, board, currentPlayerToken: "X" });
+      wrapper.setState({
+        isGameActive: true,
+        board,
+        currentPlayerToken: PLAYER_X
+      });
       wrapper.instance().onPlayerTurn(2, 2);
-      expect(wrapper.state().currentPlayerToken).toEqual("X");
+      expect(wrapper.state().currentPlayerToken).toEqual(PLAYER_X);
     });
   });
 });
