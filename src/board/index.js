@@ -6,11 +6,11 @@ import Tile from "../tile";
 const WinningLine = styled.line`
   stroke: red;
   stroke-width: 10;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: offset 2s linear forwards;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 1s linear forwards;
 
-  @keyframes offset {
+  @keyframes dash {
     to {
       stroke-dashoffset: 0;
     }
